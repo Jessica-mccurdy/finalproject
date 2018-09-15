@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order
+{% endblock %}
+
+{% block main %}
+    <form action="/order" method="post" id="order">
+        <b>Airport</b>
+        <div class="form-group">
+            <select name = "airport" id="airport">
+                <option value="" disabled selected>--Select your airport--</option>
+                <option value="HVN">Tweed New Haven Airport (HVN)</option>
+                <option value="BDL">Bradley International Airport (BDL)</option>
+                <option value="LGA">LaGuardia Airport (LGA)</option>
+                <option value="JFK">JFK Airport (JFK)</option>
+                <option value="EWR">Newark Airport (EWR)</option>
+                <option value="HPN">Westchester County Airport (HPN)</option>
+            </select>
+        </div>
+        <b>Date</b>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="date" type="date" id="date" placeholder="Date"/>
+        </div>
+        <b>Optimal Pickup Time</b></br>
+        <small>In format: Hour:Minute:PM/AM</small>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="otime" type="time" id="otime" placeholder="Optimal time of pickup"/>
+        </div>
+        <div class="form-group">
+            <select name = "number" id="number">
+                <option value="" disabled selected>--Number of passengers in your party--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        {% if type == "0" %}
+            <b>Earliest Pickup Time</b></br>
+            <small>In format: HH:MM:AM/PM</small>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="etime" type="time" id="etime" placeholder="Earliest time of pickup"/>
+            </div>
+        {% else %}
+            <b>Latest Pickup Time</b></br>
+            <small>In format: HH:MM:AM/PM</small>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="etime" type="time" id="etime" placeholder="Latest time of pickup"/>
+            </div>
+        {% endif %}
+        <button class="btn btn-primary" type="submit">Request</button>
+    </form>
+    <script type="text/javascript" src="/static/apology_order.js"></script>
+{% endblock %}
