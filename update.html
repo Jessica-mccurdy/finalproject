@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update
+{% endblock %}
+
+{% block main %}
+    <p>
+        <b>Want to change something about your ride?</b></br>
+        Choose which to update
+    </p>
+    <form action="/update" method="post" id="update">
+        <select name = "rideid" id="rideid">
+            <option value="" disabled selected>--Select Ride to Update--</option>
+            {% for ride in rides %}
+                {% if ride.type == 0 %}
+                    <option value="{{ ride.rideid }}"> Departure from {{ ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+                {% if ride.type == 1 %}
+                    <option value="{{ ride.rideid }}"> Arrival at {{ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+    <script type="text/javascript" src="/static/apology_update.js"></script>
+{% endblock %}
