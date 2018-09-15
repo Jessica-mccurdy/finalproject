@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+   <small>**Leave the fields you don't want to change blank**</small></br>
+    <form action="/settings" method="post">
+        <fieldset>
+            <legend>Change Information</legend>
+            <b>Current Username: {{ username }}</b>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" placeholder="New Username" type="text"/>
+            </div>
+            <b>Current First Name: {{ fname }}</b>
+            <div class="form-group">
+                <input class="form-control" name="fname" placeholder="New First Name" type="text"/>
+            </div>
+            <b>Current Last Name: {{ sname }}</b>
+            <div class="form-group">
+                <input class="form-control" name="surname" placeholder="New Last Name" type="text"/>
+            </div>
+            <b>Current Email: {{ email }}</b>
+            <div class="form-group">
+                <input class="form-control" name="email" placeholder="New Email Address" type="email"/>
+            </div>
+            <b>Current Phone Number: {{ phone }}</b>
+            <div class="form-group">
+                <input class="form-control" name="phone" placeholder="New Phone Number" type="text"/>
+            </div>
+            <legend><b>Change Password</b></legend>
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" name="oldpass" placeholder="Old Password" type="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="newpass" placeholder="New Password" type="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="verification" placeholder="Verify New Password" type="password"/>
+            </div>
+        </fieldset>
+    <button class="btn btn-primary" type="submit">Change</button>
+
+{% endblock %}
