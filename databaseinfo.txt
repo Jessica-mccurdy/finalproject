@@ -1,0 +1,14 @@
+Host
+ec2-184-73-206-155.compute-1.amazonaws.com
+Database
+d36i73dhm3jssb
+User
+czznryphemnxjs
+Port
+5432
+Password
+4a6625d3983a3befabf184350cfc1d43b1d285b396838bb7255421f1f32c3267
+URI
+postgres://czznryphemnxjs:4a6625d3983a3befabf184350cfc1d43b1d285b396838bb7255421f1f32c3267@ec2-184-73-206-155.compute-1.amazonaws.com:5432/d36i73dhm3jssb
+Heroku CLI
+heroku pg:psql postgresql-fluffy-48291 --app yalerideshare
