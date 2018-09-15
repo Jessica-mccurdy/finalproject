@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cancel
+{% endblock %}
+
+{% block main %}
+    <p>
+        <b>Change of plans?</b></br>
+        Cancel your match request here:
+    </p>
+    <form action="/cancel" method="post" id="cancel">
+        <select name = "rideid" id="rideid">
+            <option value="" disabled selected>--Select Ride to Cancel--</option>
+            {% for ride in rides %}
+                {% if ride.type == 0 %}
+                    <option value="{{ ride.rideid }}"> Departure from {{ ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+                {% if ride.type == 1 %}
+                    <option value="{{ ride.rideid }}"> Arrival at {{ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">Cancel</button>
+    </form>
+    <script type="text/javascript" src="/static/apology_cancel.js"></script>
+{% endblock %}
