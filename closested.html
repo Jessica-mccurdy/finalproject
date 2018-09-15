@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Closest
+{% endblock %}
+
+{% block main %}
+   <p>
+        {% for c in message %}
+            {%- if c != "\n" %}
+                {{ c }}
+            {% else %}
+                <br>
+            {% endif -%}
+        {% endfor %}
+
+   </p>
+{% endblock %}
