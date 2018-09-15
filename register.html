@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+     <p>
+         ***By registering you are agreeing to have your phone and email sent to other users***
+     </p>
+
+    <form action="/register" method="post" id="register">
+        <fieldset>
+            <legend>Login Credentials</legend>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" id="username" placeholder="Username" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="password" id="password" placeholder="Password" type="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="confirmation" id="confirmation" placeholder="Confirm Password" type="password"/>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Info</legend>
+            <div class="form-group">
+                <input class="form-control" name="name" id="name" placeholder="First Name" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="surname" id="surname" placeholder="Last Name" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="email" id="email" placeholder="Email Address" type="email"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="phone" id="phone" placeholder="Phone Number" type="text"/>
+            </div>
+        </fieldset>
+        <button class="btn btn-primary" type="submit">Register</button>
+        <button class="btn brn-primary" type="reset">Clear All Info</button>
+    </form>
+    <script type="text/javascript" src="/static/apology_register.js"></script>
+{% endblock %}
