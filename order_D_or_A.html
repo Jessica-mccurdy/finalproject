@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order
+{% endblock %}
+
+{% block main %}
+    <p>
+        <b>Here you can request for your ride to be matched.</b><br />
+        First we need to know what type of flight you have:
+    </p>
+    <form action="/new_order" method="post" id="order">
+        <div class="form-group">
+            <select name = "type" id="type">
+                <option value="" disabled selected>--Departure or Arrival--</option>
+                <option value="0">Departure</option>
+                <option value="1">Arrival</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Continue</button>
+    </form>
+    <script type="text/javascript" src="/static/apology_order_D_or_A.js"></script>
+{% endblock %}
