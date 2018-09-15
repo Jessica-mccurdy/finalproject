@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <body background = "https://i1.wp.com/www.dzzyn.com/wp-content/uploads/2015/11/30-Free-Beautiful-Watercolor-Wallpapers-That-Should-Be-on-Your-Desktop-5.jpg">
+        <p>
+            <b><font size="7">Hello{% if name is defined %}, {{ name }}{% endif %}!</font size="7"></b>
+        </p>
+        <p>
+            <font size="7">Welcome to Yale Ride Share!</font size="7">
+        </p>
+    </body>
+{% endblock %}
