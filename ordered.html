@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order
+{% endblock %}
+
+{% block main %}
+    <body>
+        {% if matched == True %}
+            A match has been made for you. Check your email!
+        {% else %}
+            There are no matches at this time, but you will be notified via email when a match is made!</br>
+            You can use closest to see the closest match outside of your time boundaries
+        {% endif %}
+
+    </body>
+{% endblock %}
