@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Complete
+{% endblock %}
+
+{% block main %}
+    <p>
+        <b>Found your match? Great!</b></br>
+        Order your Uber <a href="https://auth.uber.com/login/?next_url=https%3A%2F%2Friders.uber.com%2F&state=xVlUh1-vqqpN5iYMR72XxSJbwP9F8KPkQ2ujPrWaCSU%3D">here</a>
+        </br>
+        And make sure to mark your ride as complete!
+    </p>
+    <form action="/complete" method="post" id="complete">
+        <select name = "rideid" id="rideid">
+            <option value="" disabled selected>--Select Ride to Complete--</option>
+            {% for ride in rides %}
+                {% if ride.type == 0 %}
+                    <option value="{{ ride.rideid }}"> Departure from {{ ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+                {% if ride.type == 1 %}
+                    <option value="{{ ride.rideid }}"> Arrival at {{ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">Mark Ride as Complete</button>
+    </form>
+    <script type="text/javascript" src="/static/apology_complete.js"></script>
+{% endblock %}
