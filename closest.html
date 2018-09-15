@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Closest
+{% endblock %}
+
+{% block main %}
+    <p>
+        <b>No matches?</b><br />
+        Here you can find who has the closest time to you in case you want to lengthen your wait time
+    </p>
+    <form action="/closest" method="post" id="closest">
+        <select name = "rideid" id="rideid">
+            <option value="" disabled selected>--Select ride to find closest time to--</option>
+            {% for ride in rides %}
+                {% if ride.type == 0 %}
+                    <option value="{{ ride.rideid }}"> Departure from {{ ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+                {% if ride.type == 1 %}
+                    <option value="{{ ride.rideid }}"> Arrival at {{ride.airport }} on {{ ride.date }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">Find</button>
+    </form>
+    <script type="text/javascript" src="/static/apology_closest.js"></script>
+{% endblock %}
